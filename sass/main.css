@@ -1,0 +1,263 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: cursive;
+  color: #ee5e82;
+}
+
+::-moz-selection {
+  color: #fff;
+  background-color: #ee5e82;
+}
+
+::selection {
+  color: #fff;
+  background-color: #ee5e82;
+}
+
+.wrapper {
+  min-height: 100vh;
+  max-width: 110rem;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 3rem;
+  padding-right: 1rem;
+}
+
+.left .title {
+  max-width: 50rem;
+}
+
+.left .title h1 {
+  font-size: clamp(2rem, 5vw, 6rem);
+}
+
+.left .restart {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 1rem;
+  padding: 1.6rem 2rem;
+  background-color: #ee5e82;
+  color: #fff;
+  border-radius: 5rem;
+  cursor: pointer;
+  border: 0.1rem solid #ee5e82;
+  font-size: 1.4rem;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  font-weight: bold;
+}
+
+.left .restart:hover {
+  background-color: transparent;
+  color: #ee5e82;
+}
+
+.right .game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.right .game .header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  color: #bebebe;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.right .game .header .player-o,
+.right .game .header .player-x {
+  padding-bottom: 1rem;
+  border-bottom: 0.3rem solid #eee;
+}
+
+.right .game .header .player-x.active {
+  color: #ee5e82;
+  border-color: #ee5e82;
+}
+
+.right .game .header .player-o.active {
+  color: #ee5e82;
+  border-color: #ee5e82;
+}
+
+.right .game .header .player-o.active, .right .game .header .player-x.active {
+  -webkit-animation: animate 2s linear infinite;
+          animation: animate 2s linear infinite;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
+@keyframes animate {
+  0% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+}
+
+.right .game .board {
+  margin-top: 4rem;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  padding: 4rem 2rem;
+  padding-top: 2rem;
+}
+
+.right .game .board .board-tile {
+  height: 10rem;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 5rem;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+}
+
+.right .game .board .board-tile:hover {
+  background: #eeeeee;
+}
+
+.right .game .board .board-tile:not(:nth-child(3n)) {
+  border-right: 0.2rem solid #ee5e82;
+}
+
+.right .game .board .board-tile:not(:nth-last-child(-n + 3)) {
+  border-bottom: 0.2rem solid #ee5e82;
+}
+
+.right .game .board .tile-x {
+  color: #42bed7;
+}
+
+.right .game .board .tile-o {
+  color: #d7bafb;
+}
+
+.right .game .board .board-tile.tile-winner span {
+  color: #21e921;
+  -webkit-animation: rotate 1s linear infinite;
+          animation: rotate 1s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .board {
+    margin-top: 1rem 0;
+  }
+  .left {
+    padding: 0 2rem;
+    padding-top: 8rem;
+    text-align: center;
+  }
+  .left .restart {
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */
